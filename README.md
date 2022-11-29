@@ -1,8 +1,7 @@
 # santa_rally
 Analys of the Santa Claus Rally
 
-Llegan las fiestas y comienza a sonar el tan esperado rally navideño, en el que supuestamente los mercados suben de precio.
-Es tan real como dicen?
+Llegan las fiestas y comienza a asomar el tan mencionado "rally navideño", período en el que supuestamente los mercados suben de precio. Es real o solo una impresión?
 
 Spoiler alert: Está mal, pero no tan mal.
 
