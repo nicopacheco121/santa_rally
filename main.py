@@ -57,8 +57,10 @@ def box_plot(data):
 
     # Create the boxplot
     bp = ax.boxplot(data, vert=True, whis=1.5, showmeans=True, showfliers=True)
-    line = ax.plot([1, len(columns)], [0, 0], 'k--', lw=1, color='white')
+    line = ax.plot([1, len(columns)], [0, 0], '--', lw=1, color='white')
     plt.xticks([i for i in range(1, len(columns)+1)], columns)
+
+    plt.savefig('santa_rally')
 
     plt.show()
 
@@ -72,12 +74,15 @@ def run():
     data_monthy = run_monthly(data_copy=data)
     data_two_weeks = run_two_weeks(data_copy=data)
 
+    print(' * * * \n')
     print(f'The monthly analys mean is {data_monthy.change.mean()} and the two weeks analys mean is {data_two_weeks.change.mean()}')
+    print('\n * * * ')
 
     # Arragement for the plot
     data_concat = pd.DataFrame()
     data_concat['change_monthy'] = data_monthy['change']
     data_concat['change_two_weeks'] = data_two_weeks['change']
+    data_concat.to_excel('santa_rally.xlsx')
     box_plot(data=data_concat)
 
 
