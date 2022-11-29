@@ -2,9 +2,15 @@ import pandas as pd
 import yfinance as yf
 import datetime as dt
 
+
 def yfinance_data(ticker, interval='1d', years_data=7):
 
     """
+    Download data
+    ticker = Ticker to download
+    inverval = 1d, 1m, 1a, etc.
+    years_data = number of years to get
+
     DATES EXAMPLE = '2022-10-06'
     """
 
@@ -26,26 +32,3 @@ def yfinance_data(ticker, interval='1d', years_data=7):
         data = pd.DataFrame()
 
     return data
-
-
-def data_etfs(tickers, interval='1d', years_data=10):
-
-    dfs = []
-    for ticker in tickers:
-
-        print(f'Descargando data {ticker}')
-
-        data = yfinance_data(ticker=ticker, interval=interval, years_data=years_data)
-
-        if data.empty:
-            print(f'Error con ticker {ticker}')
-            continue
-
-        data_filter = pd.DataFrame()
-        data_filter[ticker] = data['Close']
-
-        dfs.append(data_filter)
-
-    data_all = pd.concat(dfs, axis=1)
-
-    return data_all
